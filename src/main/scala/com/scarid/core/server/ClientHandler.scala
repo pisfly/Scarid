@@ -14,7 +14,7 @@ class ClientHandler(socket:Socket) extends Runnable{
     println("Client:" + socket.getInetAddress.getHostName)
 
     var msg = ""
-    while((msg = bf.readLine()) != null){
+    while({ msg = bf.readLine(); msg != null }){
       println("Data:" + msg)
     }
 
