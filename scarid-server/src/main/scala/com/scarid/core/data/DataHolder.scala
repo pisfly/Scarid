@@ -8,9 +8,10 @@ object DataHolder{
 
   private val raw = new mutable.HashMap[String,Any]()
 
-  //TODO make it thread safe
   def set(pair:DataPair) = {
-      raw.update(pair.key,pair.value)
+    raw.synchronized {
+      raw.update(pair.key, pair.value)
+    }
 
   }
 
